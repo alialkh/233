@@ -51,12 +51,17 @@ public class Battle
 					System.out.println("The " + enemyName + " has hit you for " + enemyDmg + " damage!");
 					break;
 				case "2":
+				if (player.getNumOfPot() > 0) {
 					attackMessage = "You drank the potion and restored 2 health";
 					playerHp = player.getHealth();
 					playerHp -= enemyDmg;
 					player.setHealth(playerHp);
 					System.out.println("The " + enemyName + " has hit you for " + enemyDmg + " damage!");
 					player.useItem();
+				}
+				else {
+					attackMessage="You have no potions!";
+				}
 					break;
 				default:
 					attackMessage = "Invalid input";
